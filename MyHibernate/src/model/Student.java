@@ -41,11 +41,7 @@ public class Student implements java.io.Serializable {
 	private String email;
 	private String password;
 	private Date creationTimestamp;
-	private Date lastUpdatedTimestamp;
-//	private Set<StudentClassSection> studentClassSections = new HashSet<StudentClassSection>(
-//			0);
-
-	
+	private Date lastUpdatedTimestamp;	
 	private Set<ClassSection> studentClasses;
 	
 	public Student() { }
@@ -112,7 +108,7 @@ public class Student implements java.io.Serializable {
 		this.studentId = studentId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name = "created_by", nullable = false)
 	public SystemUser getSystemUserByCreatedBy() {
 		return this.systemUserByCreatedBy;
@@ -190,7 +186,7 @@ public class Student implements java.io.Serializable {
 	}
 	
 
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(
 	name="student_class_section",
 	joinColumns = {@JoinColumn( name="student_id") },

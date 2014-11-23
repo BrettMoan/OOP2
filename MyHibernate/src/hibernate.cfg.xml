@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -10,5 +10,14 @@
         <property name="hibernate.connection.username">hibernate</property>
         <property name="hibernate.default_schema">hibernate</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping class="Department" />
+        <mapping class="Employee" />
+        <mapping class="StudentClassSection" />
+        <mapping class="ClassSection" />
+        <mapping class="SystemUser" />
+        <mapping class="Student" />
+        <mapping class="Classes" />
     </session-factory>
 </hibernate-configuration>
